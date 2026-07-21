@@ -108,3 +108,18 @@ function getAverageLevel() {
 function getPlayerNames() {
     return guild.map(player => player.name);
 }
+
+function getPlayerWeapons() {
+    return guild.map(player => player.gear.weapon);
+}
+
+
+function getPlayerClasses() {
+    return guild.map(player => player.playerClass)
+}
+
+function getPlayerArmor() {
+    return guild.map(player => player.gear.armor)
+}
+
+console.log(getPlayerArmor())
