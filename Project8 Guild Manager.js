@@ -121,5 +121,3 @@ function getPlayerClasses() {
 function getPlayerArmor() {
     return guild.map(player => player.gear.armor)
 }
-
-console.log(getPlayerArmor())
