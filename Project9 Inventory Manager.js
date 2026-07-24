@@ -94,7 +94,7 @@ function getItemNames() {
 function useItem(name, amount) {
     const usedItem = inventory.find(item => item.name === name)
 
-    if(usedItem){
+    if(usedItem && usedItem.quantity >= amount){
         usedItem.quantity -= (amount)
     } return usedItem
 }
@@ -114,5 +114,21 @@ function inventoryValue() {
         totalValue += inventory[i].value
     } 
     return totalValue
+}
+
+function addStock(name, amount){
+    const itemStock = inventory.find(item => item.name === name)
+
+    if(itemStock){
+        itemStock.quantity += amount
+    } return itemStock
+}
+
+function findRareItems(rarity){
+    return inventory.filter(item => item.rarity === rarity)
+}
+
+function getItemDurability(){
+    return inventory.map(item => item.durability)
 }
 
