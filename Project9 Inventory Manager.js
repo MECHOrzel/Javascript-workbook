@@ -132,3 +132,15 @@ function getItemDurability(){
     return inventory.map(item => item.durability)
 }
 
+
+function isBroken(name) {
+    const brokenItem = inventory.find(item => item.name === name)
+
+    if(brokenItem.durability <= 0){
+        return true
+    } else return false
+} 
+
+function getBrokenItems() {
+    return inventory.filter(item => item.durability <= 0)
+}
