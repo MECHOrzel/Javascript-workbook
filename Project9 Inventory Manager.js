@@ -144,3 +144,26 @@ function isBroken(name) {
 function getBrokenItems() {
     return inventory.filter(item => item.durability <= 0)
 }
+
+function printItemNames() {
+    for (let i = 0; i < inventory.length; i++) {
+        console.log(inventory[i].name)
+}
+}
+
+function printDurability() {
+    for (let i = 0; i < inventory.length; i++) {
+        console.log(inventory[i].durability)
+    }
+}
+
+function itemCount() {
+    let count = 0;
+
+    for (let i = 0; i < inventory.length; i++) {
+        count++;
+    }
+
+    return count;
+}  
+
