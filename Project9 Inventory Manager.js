@@ -167,4 +167,18 @@ function itemCount() {
     return count;
 }  
 
-// git test
+function printItemValues(){
+    for(let i = 0; i < inventory.length; i++){
+        console.log(inventory[i].value)
+    }
+}
+
+function printItemRarities() {
+    for(let i = 0; i < inventory.length; i++){
+        console.log(inventory[i].rarity)
+    }
+}
+
+function printItemQuantities() {
+
+}
