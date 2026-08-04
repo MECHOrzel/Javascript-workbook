@@ -180,5 +180,52 @@ function printItemRarities() {
 }
 
 function printItemQuantities() {
-
+    for(let i = 0; i < inventory.length; i++){
+        console.log(inventory[i].quantity)
+    }
 }
+
+function printItemNames() {
+    for(let i = 0; i < inventory.length; i++){
+        console.log(inventory[i].name)
+    }
+}
+
+function printDurableItems() {
+    for(let i = 0; i < inventory.length; i++){
+        if(inventory[i].durability >= 100){
+            console.log(inventory[i].name)
+        }
+    }
+}
+
+function printCheapItems() {
+    for(let i = 0; i < inventory.length; i++){
+        if(inventory[i].value < 150){
+            console.log(inventory[i].name)
+        }
+    }
+}
+
+function countCheapItems() {
+    let count = 0
+
+    for(let i = 0; i < inventory.length; i++){
+        if(inventory[i].value < 150){
+            count++
+        }
+    }
+    return count
+}
+
+function countDurableItems() {
+    let count = 0
+
+    for(let i = 0; i < inventory.length; i++){
+        if(inventory[i].durability >= 100){
+            count++
+        }
+    }
+    return count
+}
+
