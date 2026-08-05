@@ -229,3 +229,47 @@ function countDurableItems() {
     return count
 }
 
+function countCommonItems() {
+    
+    let count = 0
+
+    for(let i = 0; i < inventory.length; i++){
+        if(inventory[i].rarity === "Common"){
+            count++
+        }
+    }
+    return count
+}
+
+function totalDurability() {
+    let itemDurability = 0
+
+    for (let i = 0; i < inventory.length; i++) {
+        itemDurability += inventory[i].durability
+    } 
+    return itemDurability 
+}
+
+function totalCommonValue() {
+    let totalValue = 0
+
+    for (let i = 0; i < inventory.length; i++){
+        if(inventory[i].rarity === "Common"){
+            totalValue += inventory[i].value
+        }
+    }
+    return totalValue
+}
+
+function getMostValuableItem() {
+    let bestItem = inventory[0];
+
+    for (let i = 0; i < inventory.length; i++) {
+        if (inventory[i].value > bestItem.value) {
+            bestItem = inventory[i];
+        }
+    }
+
+    return bestItem;
+}
+
