@@ -273,3 +273,25 @@ function getMostValuableItem() {
     return bestItem;
 }
 
+function getCheapestItem() {
+    let cheapestItem = inventory[0];
+
+    for (let i = 0; i < inventory.length; i++){
+        if (inventory[i].value < cheapestItem.value) {
+            cheapestItem = inventory[i]
+        }
+    }
+    return cheapestItem
+}
+
+function getMostDurableCommonItem() {
+    let item = inventory[0];
+     for (let i = 0; i < inventory.length; i++){
+        if (inventory[i].durability > item.durability && inventory[i].rarity === "Common"){
+            item = inventory[i]
+        }
+     }
+     return item
+}
+
+console.log(getMostDurableCommonItem())
