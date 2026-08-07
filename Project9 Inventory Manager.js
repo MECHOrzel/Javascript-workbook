@@ -294,4 +294,4 @@ function getMostDurableCommonItem() {
      return item
 }
 
-console.log(getMostDurableCommonItem())
+ 
