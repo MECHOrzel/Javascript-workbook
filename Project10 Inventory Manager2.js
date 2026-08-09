@@ -57,3 +57,11 @@ addItem(
     "Uncommon",
     300
 )
+
+function removeItem(name) {
+
+    const itemIndex = inventory.findIndex(item => item.name === name)
+    inventory.splice(itemIndex,1)
+
+}
+
