@@ -100,6 +100,66 @@ function removeCheapItem(name) {
     }
 }
 
+function sellItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >=0 && inventory[itemIndex].quantity > 0){
+        inventory[itemIndex].quantity--
+
+        if (inventory[itemIndex].quantity === 0){
+            inventory.splice(itemIndex, 1)
+        }
+    }
+}
+
+function restockItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+    
+    if(itemIndex >=0) {
+        inventory[itemIndex].quantity++
+    }
+}
+
+function damageItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >=0){
+        inventory[itemIndex].durability--
+    }
+}
+
+function increaseItemValue(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >=0){
+        inventory[itemIndex].value++
+    }
+}
+
+function repairItem(name){
+     const itemIndex = inventory.findIndex(item => item.name === name)
+
+     if(itemIndex >= 0){
+        inventory[itemIndex].durability++
+     }
+}
+
+function useItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].quantity > 0){
+        inventory[itemIndex].quantity--
+    }
+}
+
+function weakenExpensiveItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].value > 100){
+        inventory[itemIndex].durability--
+    }
+}
+
 
 
 // ========================
@@ -116,3 +176,25 @@ function removeCompanion(name) {
     }
 }
 
+// ========================
+// PRACTICE
+// ========================
+
+// party exercise
+
+// character exercise
+
+
+const characters = [
+    { name: "Reinhardt", role: "Tank" },
+    { name: "Mercy", role: "Support" },
+    { name: "Genji", role: "Damage" }
+]
+
+function removeCharacter(name) {
+    const characterIndex = characters.findIndex(member => member.name === name)
+
+    if(characterIndex >=0){
+        characters.splice(characterIndex, 1)
+    }
+}
