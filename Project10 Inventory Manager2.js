@@ -160,6 +160,117 @@ function weakenExpensiveItem(name) {
     }
 }
 
+function repairDamagedItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].durability < 100){
+        inventory[itemIndex].durability++
+    }
+}
+
+function damageValuableItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].value > 100 && inventory[itemIndex].durability > 0){
+        inventory[itemIndex].durability--
+    }
+}
+
+function sellItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].quantity > 0){
+        inventory[itemIndex].quantity--
+
+        if (inventory[itemIndex].quantity === 0) {
+            inventory.splice(itemIndex, 1)
+        }
+    } 
+}
+
+function upgradeItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0){
+        inventory[itemIndex].value++ 
+        inventory[itemIndex].durability++
+    }
+}
+
+function improveItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].durability < 100){
+         inventory[itemIndex].value++ 
+        inventory[itemIndex].durability++
+    }
+}
+
+function renameItem(oldName, newName) {
+    const itemIndex = inventory.findIndex(item => item.name === oldName)
+
+    if(itemIndex >=0){
+        inventory[itemIndex].name = newName
+    }
+}
+
+function setItemValue(name, newValue) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0){
+        inventory[itemIndex].value = newValue
+    }
+}
+
+function discountItem(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].value > 100){
+        inventory[itemIndex].value -= 10
+    }
+}
+
+function damageItemHeavy(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].durability >= 10){
+        inventory[itemIndex].durability -= 10
+    }
+}
+
+
+function boostItemValue(name) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0){
+        inventory[itemIndex].value += 25
+    }
+}
+
+function boostItemValue(name, amount){
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0){
+        inventory[itemIndex].value += amount
+    }
+}
+
+function repairItem(name, amount) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0){
+        inventory[itemIndex].durability += amount
+    }
+}
+
+function damageItem(name, amount) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].durability >= amount){
+        inventory[itemIndex].durability -= amount
+        
+}
+}
 
 
 // ========================
