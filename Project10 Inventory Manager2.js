@@ -325,6 +325,39 @@ function highValue(){
     return total
 }
 
+function countValuableQuantity() {
+    let total = 0
+
+    for (let i = 0; i < inventory.length; i++){
+        if(inventory[i].value > 100){
+            total += inventory[i].quantity
+        }
+    }
+    return total
+}
+
+function countDamagedItems() {
+    let total = 0
+
+    for (let i = 0; i < inventory.length; i++){
+        if(inventory[i].durability < 50){
+            total += 1
+        }
+    }
+    return total
+}
+
+function getTotalDamagedValue() {
+    let total = 0
+
+    for (let i = 0; i < inventory.length; i++){
+        if(inventory[i].durability < 50){
+          total += inventory[i].value * inventory[i].quantity
+        }
+    }
+    return total
+}
+
 // ========================
 // PRACTICE - SIMPLE ARRAYS
 // ========================
