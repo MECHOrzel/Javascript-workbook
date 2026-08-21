@@ -272,6 +272,58 @@ function damageItem(name, amount) {
 }
 }
 
+function lowerItemValue(name, amount) {
+    const itemIndex = inventory.findIndex(item => item.name === name)
+
+    if(itemIndex >= 0 && inventory[itemIndex].value >= amount){
+        inventory[itemIndex].value -= amount
+    }
+}
+
+function getItemValue(name) {
+    const item = inventory.find(item => item.name === name)
+
+    if(item){
+        return item.value
+    }
+}
+
+function getItemDurability(name) {
+    const item = inventory.find(item => item.name === name)
+
+    if(item){
+        return item.durability
+    }
+}
+
+function getTotalInventoryValue() {
+    let total = 0
+
+    for (let i = 0; i < inventory.length; i++){
+        total += inventory[i].value * inventory[i].quantity
+    }
+    return total
+}
+
+function getTotalInventoryDurability(){
+    let total = 0
+
+    for (let i = 0; i < inventory.length; i++){
+        total += inventory[i].durability
+    }
+    return total
+}
+
+function highValue(){
+    let total = 0
+
+    for (let i = 0; i < inventory.length; i++){
+        if(inventory[i].durability > 50){
+            total += inventory[i].value
+        }
+    }
+    return total
+}
 
 // ========================
 // PRACTICE - SIMPLE ARRAYS
