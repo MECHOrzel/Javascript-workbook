@@ -1,5 +1,9 @@
 let adventureStarted = false
 
+let questWarning
+
+let questButton
+
 const body = document.querySelector("body")
 
 function startAdventure(){
@@ -11,6 +15,15 @@ if (adventureStarted === false) {
     body.classList.add("adventure-active")
     questLink.setAttribute("href", "https://www.wikipedia.org")
     questLink.textContent = "Read Your Quest"
+          questWarning = document.createElement("p")
+          questWarning.classList.add("danger-text")
+          questWarning.textContent = "Beware of the Dragon!"
+          questArea.appendChild(questWarning)
+          
+          questButton = document.createElement("button")
+          questButton.textContent = "Accept Quest"
+          questArea.appendChild(questButton)
+          questButton.addEventListener("click", acceptQuest)
     } else {
             adventureStarted = false
           heading.textContent = "Welcome Hero!"
@@ -19,6 +32,9 @@ if (adventureStarted === false) {
           body.classList.remove("adventure-active")
           questLink.setAttribute("href", "https://example.com")
           questLink.textContent = "View Quest"
+          questWarning.remove()
+          questButton.remove()
+          
 }
 }
 
@@ -42,3 +58,11 @@ button.addEventListener("click", startAdventure)
 const questLink = document.querySelector("#quest-link")
 
 questLink.setAttribute("href", "https://google.com")
+
+const questArea = document.querySelector("#quest-area")
+
+function acceptQuest() {
+    questWarning.textContent = "Quest Accepted: Defeat the Dragon!"
+}
+
+
