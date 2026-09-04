@@ -27,6 +27,24 @@ const quests = [
 
 const body = document.querySelector("body")
 
+function selectQuest(event) {
+    const clickedTitle = event.target.textContent
+    const selectedQuest = quests.find(quest => quest.title === clickedTitle)
+    
+    const titleParagraph = document.createElement("p")
+    titleParagraph.textContent = selectedQuest.title
+    questDetails.appendChild(titleParagraph)
+
+    const descriptionParagraph = document.createElement("p")
+    descriptionParagraph.textContent = selectedQuest.description
+    questDetails.appendChild(descriptionParagraph)
+
+    const rewardParagraph = document.createElement("p")
+    rewardParagraph.textContent = selectedQuest.reward
+    questDetails.appendChild(rewardParagraph)
+
+}
+
 function startAdventure(){
 if (adventureStarted === false) {
     adventureStarted = true
@@ -47,6 +65,7 @@ if (adventureStarted === false) {
             const questParagraph = document.createElement("p")
             questParagraph.classList.add("quest-item")
             questParagraph.textContent = quests[i].title
+            questParagraph.addEventListener("click", selectQuest)
             questArea.appendChild(questParagraph)
         }
 
@@ -75,6 +94,7 @@ if (adventureStarted === false) {
 }
 }
 
+const questDetails = document.querySelector("#quest-details")
 
 const heading = document.querySelector("h1")
 
