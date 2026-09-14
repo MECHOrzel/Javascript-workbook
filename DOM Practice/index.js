@@ -6,6 +6,8 @@ let questButton
 
 let questDescription
 
+let selectedQuest
+
 
 const quests = [
     {
@@ -29,7 +31,8 @@ const body = document.querySelector("body")
 
 function selectQuest(event) {
     const clickedTitle = event.target.textContent
-    const selectedQuest = quests.find(quest => quest.title === clickedTitle)
+    selectedQuest = quests.find(quest => quest.title === clickedTitle)
+    questDetails.textContent = ""
     
     const titleParagraph = document.createElement("p")
     titleParagraph.textContent = selectedQuest.title
@@ -40,7 +43,7 @@ function selectQuest(event) {
     questDetails.appendChild(descriptionParagraph)
 
     const rewardParagraph = document.createElement("p")
-    rewardParagraph.textContent = selectedQuest.reward
+    rewardParagraph.textContent = "Reward: " + selectedQuest.reward + " Gold"
     questDetails.appendChild(rewardParagraph)
 
 }
@@ -115,7 +118,8 @@ questLink.setAttribute("href", "https://google.com")
 const questArea = document.querySelector("#quest-area")
 
 function acceptQuest() {
-    questWarning.textContent = "Quest Accepted: Defeat the Dragon!"
+    sentence.textContent = "Quest Accepted: " + selectedQuest.title
+    selectedQuest.accepted = true
 }
 
 
