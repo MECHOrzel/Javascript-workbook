@@ -13,17 +13,20 @@ const quests = [
     {
         title: "Dragon Hunt",
         description: "Defeat the dragon in the northern cave.",
-        reward: 500
+        reward: 500,
+        accepted: false
     },
     {
         title: "Goblin Trouble",
         description: "Clear the goblins from the old mine.",
-        reward: 250
+        reward: 250,
+        accepted: false
     },
     {
         title: "The Lost Sword",
         description: "Recover the blacksmith's stolen sword.",
-        reward: 150
+        reward: 150,
+        accepted: false
     }
 ]
 
@@ -72,13 +75,7 @@ if (adventureStarted === false) {
             questArea.appendChild(questParagraph)
         }
 
-
-
-
-
-
-
-    } else {
+} else {
             adventureStarted = false
           heading.textContent = "Welcome Hero!"
           sentence.textContent = "Prepare yourself for battle!"
@@ -118,8 +115,12 @@ questLink.setAttribute("href", "https://google.com")
 const questArea = document.querySelector("#quest-area")
 
 function acceptQuest() {
-    sentence.textContent = "Quest Accepted: " + selectedQuest.title
-    selectedQuest.accepted = true
+    if (selectedQuest.accepted === false) {
+        sentence.textContent = "Quest Accepted: " + selectedQuest.title
+        selectedQuest.accepted = true
+    } else{
+        sentence.textContent = "You already accepted this quest!"
+    }
 }
 
 
