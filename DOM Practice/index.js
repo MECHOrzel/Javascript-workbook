@@ -8,6 +8,8 @@ let questDescription
 
 let selectedQuest
 
+let selectedQuestElement
+
 
 const quests = [
     {
@@ -36,6 +38,7 @@ function selectQuest(event) {
     const clickedTitle = event.target.textContent
     selectedQuest = quests.find(quest => quest.title === clickedTitle)
     questDetails.textContent = ""
+    selectedQuestElement = event.target
     
     const titleParagraph = document.createElement("p")
     titleParagraph.textContent = selectedQuest.title
@@ -84,6 +87,12 @@ if (adventureStarted === false) {
           questLink.setAttribute("href", "https://example.com")
           questLink.textContent = "View Quest"
           questButton.remove()
+          selectedQuest = undefined
+          questDetails.textContent = ""
+
+          for (let i = 0; i < quests.length; i++) {
+            quests[i].accepted = false
+          }
           
           const questItems = document.querySelectorAll(".quest-item")
           for (let i = 0; i < questItems.length; i++) {
@@ -115,6 +124,12 @@ questLink.setAttribute("href", "https://google.com")
 const questArea = document.querySelector("#quest-area")
 
 function acceptQuest() {
+
+    if (selectedQuest === undefined) {
+        sentence.textContent = "Please select a quest!"
+        return
+    }
+
     if (selectedQuest.accepted === false) {
         sentence.textContent = "Quest Accepted: " + selectedQuest.title
         selectedQuest.accepted = true
