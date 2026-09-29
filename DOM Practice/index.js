@@ -133,6 +133,8 @@ function acceptQuest() {
     if (selectedQuest.accepted === false) {
         sentence.textContent = "Quest Accepted: " + selectedQuest.title
         selectedQuest.accepted = true
+        selectedQuestElement.textContent = selectedQuest.title + " - ACCEPTED"
+    
     } else{
         sentence.textContent = "You already accepted this quest!"
     }
