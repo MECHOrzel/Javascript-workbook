@@ -1414,4 +1414,3 @@ Our JavaScript code connects the two.
 END OF QUEST PROJECT NOTES
 ============================================================
 */
-```
