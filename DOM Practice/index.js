@@ -35,7 +35,7 @@ const quests = [
 const body = document.querySelector("body")
 
 function selectQuest(event) {
-    const clickedTitle = event.target.textContent
+    const clickedTitle = event.target.dataset.questTitle
     selectedQuest = quests.find(quest => quest.title === clickedTitle)
     questDetails.textContent = ""
     selectedQuestElement = event.target
@@ -74,6 +74,7 @@ if (adventureStarted === false) {
             const questParagraph = document.createElement("p")
             questParagraph.classList.add("quest-item")
             questParagraph.textContent = quests[i].title
+            questParagraph.dataset.questTitle = quests[i].title
             questParagraph.addEventListener("click", selectQuest)
             questArea.appendChild(questParagraph)
         }
