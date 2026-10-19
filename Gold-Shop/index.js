@@ -16,10 +16,11 @@ function buySword(){
         currentGold = currentGold - 30
         inventory.push("Sword")
         updateInventory()
-        goldDisplay.textContent = "Gold: " + currentGold
+        updateGold()
+        messageDisplay.textContent = "Sword purchased!"
         
     } else {
-        console.log("Not Enough Gold!")
+        messageDisplay.textContent = "Not Enough Gold!"
     }
 }
 
@@ -28,15 +29,20 @@ function buyShield(){
         currentGold = currentGold - 50
         inventory.push("Shield")
         updateInventory()
-        goldDisplay.textContent = "Gold: " + currentGold
+        updateGold()
+        messageDisplay.textContent = "Shield purchased!"
     } else {
-        console.log("Not Enough Gold!")
+        messageDisplay.textContent = "Not Enough Gold!"
     }
 }
 
-goldDisplay.textContent = "Gold: " + currentGold
+updateGold()
 
 function updateInventory(){
     inventoryDisplay.textContent = "Inventory: " + inventory.join(", ")
+}
+
+function updateGold(){
+    goldDisplay.textContent = "Gold: " + currentGold
 }
 
