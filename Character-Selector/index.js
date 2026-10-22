@@ -30,17 +30,30 @@ const characterDisplayName = document.querySelector("#characterName")
 const healthDisplay = document.querySelector("#health")
 const attackDisplay = document.querySelector("#attack")
 const defenseDisplay = document.querySelector("#defense")
+const descriptionDisplay = document.querySelector("#description")
 
 
 
 paladinButton.addEventListener("click", selectPaladin)
-// mageButton.addEventListener("click", selectMage)
-// rogueButton.addEventListener("click", selectRogue)
+mageButton.addEventListener("click", selectMage)
+rogueButton.addEventListener("click", selectRogue)
 
 function selectPaladin(){
-    characterDisplayName.textContent = paladin.name
-    healthDisplay.textContent = "Health: " + paladin.health
-    attackDisplay.textContent = "Attack: " + paladin.attack
-    defenseDisplay.textContent = "Defense: " + paladin.defense
+    displayCharacter(paladin)
 }
 
+function selectMage(){
+    displayCharacter(mage)
+}
+
+function selectRogue(){
+    displayCharacter(rogue)
+}
+
+function displayCharacter(character){
+    characterDisplayName.textContent = character.name
+    healthDisplay.textContent = "Health: " + character.health
+    attackDisplay.textContent = "Attack: " + character.attack
+    defenseDisplay.textContent = "Defense: " + character.defense
+    descriptionDisplay.textContent = "Description: " + character.description
+}
